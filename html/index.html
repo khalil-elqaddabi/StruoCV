@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../js/starter.js"></script>
+  </head>
+  <body class=" min-h-screen flex items-center justify-center bg-gray-400">
+     <div class="w-[90%] max-w-[600px] grid gap-[50px]">
+      <h1 class="text-center text-[crimson]">MAKE YOUR PROFISSIONAL CV</h1>
+      <div class="progress-container relative">
+      <div class="progress-bar w-[100%] h-[4px] bg-amber-50 absolute top-1/2 transform translate-y-[-50%] z-[-1]">
+      <div class="progress w-[100%] h-[100%] bg-red-600 transform scale-x-[0] origin-[0] transition duration-300"></div>
+      </div>
+      <ol class="steps flex justify-between">
+        <li class="step w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center text-lg transition-all duration-300 transform-none"><span class="number">1</span></li>
+        <li class="step w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center text-lg transition-all duration-300 transform-none"><span class="number">2</span></li>
+        <li class="step w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center text-lg transition-all duration-300 transform-none"><span class="number">3</span></li>
+        <li class="step w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center text-lg transition-all duration-300 transform-none"><span class="number">4</span></li>
+        <li class="step w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center text-lg transition-all duration-300 transform-none"><span class="number">5</span></li>
+       </ol>
+      </div>
+   
+      <div class="nav-buttons flex items-center justify-center gap-[50px]">
+        <button class="prev cursor-pointer rounded-md px-10 py-2 text-[white] bg-red-500  " >prev</button>
+        <button class="next cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500">next</button>
+      </div>
+     </div>
+    
+  </body>
+</html>
