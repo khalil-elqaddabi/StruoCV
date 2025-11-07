@@ -1,16 +1,4 @@
-.step.active{
-    background-color: orange;
-    color: #ffffff;
-}
-.step.active:not(:first-child){
-    animation: pulsate .3s ease-in-out .3s;
-}
 
-@keyframes putsate {
-    0%, 100% {
-        transform:scale(1);
-    }
-    50%{
-        transform: scale(1.25);
-    }
+.step{
+    background-color: rgb(89, 106, 152);
 }
