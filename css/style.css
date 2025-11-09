@@ -2,3 +2,12 @@
 .step{
     background-color: rgb(89, 106, 152);
 }
+
+.action{
+    display: none;
+}
+.action.active{
+    display: block;
+}
+
+
