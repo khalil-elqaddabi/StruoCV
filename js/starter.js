@@ -194,7 +194,7 @@ function addLangue(){
 
 
 
-// adduniversity
+// ====adduniversity====//
 function addUni(){
   const ul=document.getElementById('uni')
   const iuni=document.getElementById('iuni')
@@ -211,12 +211,14 @@ function addUni(){
   
   li.innerHTML = `
   <div>
-    <div> <span class="text-gray-500">Univercity</span> : ${iuni.value}</div>
-    <div> <span class="text-gray-500">domine</span> : ${info.value}</div>
-    <div> <span class="text-gray-500">institution</span> : ${inst.value}</div>
-    <div> <span class="text-gray-500">location</span> : ${loc.value}</div>
-    <div> <span class="text-gray-500>startDate</span> : ${ds.value}</div>
-    <div> <span class="text-gray-500>endDate</span> : ${de.value}</div>
+    <div> <span class="text-gray-500">Univercity : </span>  ${iuni.value}</div>
+    <div> <span class="text-gray-500">domine : </span>  ${info.value}</div>
+    <div> <span class="text-gray-500">institution : </span>  ${inst.value}</div>
+    </div>
+    <div>
+    <div> <span class="text-gray-500">location : </span>  ${loc.value}</div>
+    <div> <span class="text-gray-500">startDate : </span>  ${ds.value}</div>
+    <div> <span class="text-gray-500">endtDate : </span>  ${de.value}</div>
     </div>
     <button class="removeBtn text-red-500 font-bold ml-3">X</button>
   `;
@@ -232,6 +234,77 @@ function addUni(){
   loc.value = "";
   ds.value = "";
   de.value = "";
+  
+}
+
+//=====experience====//
+function addEx(){
+  const ul = document.getElementById('ex')
+  const job =  document.getElementById('ijob')
+  const comp =  document.getElementById('icom')
+  const contra =  document.getElementById('contra')
+  const loc =  document.getElementById('iloc')
+  const ds =  document.getElementById('ids')
+  const de =  document.getElementById('ide')
+  const ach =  document.getElementById('ach')
+  let li=document.createElement('li')
+  li.classList.add('listx')
+
+  li.innerHTML=`
+  <div class="flex justify-between">
+  <div>
+    <div> <span class="text-gray-500">Univercity : </span>  ${job.value}</div>
+    <div> <span class="text-gray-500">domine : </span>  ${comp.value}</div>
+    <div> <span class="text-gray-500">institution : </span>  ${contra.value}</div>
+    </div>
+    <div class="mr-[30px]">
+    <div> <span class="text-gray-500">location : </span>  ${loc.value}</div>
+    <div> <span class="text-gray-500">startDate : </span>  ${ds.value}</div>
+    <div> <span class="text-gray-500">endtDate : </span>  ${de.value}</div>
+    </div>
+    </div>
+    <span class="text-gray-500">achievements : </span> ${ach.value}
+    <button class="removeBtn text-red-500 font-bold ml-3">X</button>`
+    li.querySelector(".removeBtn").addEventListener("click", () => {
+    li.remove();
+  });
+
+    ul.appendChild(li)
+    job.value = "";
+  comp.value = "";
+  contra.value = "";
+  loc.value = "";
+  ds.value = "";
+  de.value = "";
+  ach.value = "";
+}
+
+//=====addcertifica====//
+function addcertifica(){
+  const ul = document.getElementById('nom')
+  const inom =  document.getElementById('inom')
+  const link =  document.getElementById('ilink')
+ 
+  let li=document.createElement('li')
+  li.classList.add('listC')
+
+  li.innerHTML=`
+  
+  <div>
+    <div> <span class="text-gray-500">Univercity : </span>  ${inom.value}</div>
+    <div> <span class="text-gray-500">domine : </span>  ${link.value}</div>
+    </div>
+   
+    
+    
+    <button class="removeBtn text-red-500 font-bold ml-3">X</button>`
+    li.querySelector(".removeBtn").addEventListener("click", () => {
+    li.remove();
+  });
+
+    ul.appendChild(li)
+    inom.value = "";
+  link.value = "";
   
 }
 

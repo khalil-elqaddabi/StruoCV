@@ -62,21 +62,21 @@
         </ol>
       </div>
       <!-- section 1 -->
-      <div class="flex flex-col items-center justify-center gap-[30px] action active">
+      <div class="flex flex-col items-center justify-center gap-[20px] action active">
       <section class="  active w-[100%] flex justify-center items-center " id="info">
         <form action="/" class="bg-white w-[90%] rounded-lg shadow-lg ">
           <div class="fhoto flex flex-col items-center mt-8 gap-[20px] pb-6">
-            <div class="flex items-center justify-center w-[30%]  ">
+            <div class="flex items-center justify-center w-[20%] h-[10%] ">
               <label
                 for="dropzone-file"
-                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer  dark:hover:bg-white dark:bg-gray-600 hover:bg-white dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 "
+                class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer  dark:hover:bg-white dark:bg-gray-600 hover:bg-white dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 "
               >
-              <p class="text-gray-400">photo</p>
+              <p class="text-gray-400 mb-2">photo</p>
               
                 <div
-                  class="flex flex-col items-center justify-center pt-5 pb-6"
+                  class="flex flex-col items-center justify-center "
                 >
-                <i class="fa-solid fa-image-portrait text-[50px] text-gray-400 mb-10"></i>
+                <i class="fa-solid fa-image-portrait text-[50px] text-gray-400 mb-2 "></i>
                     <path
                       stroke="currentColor"
                       stroke-linecap="round"
@@ -86,12 +86,10 @@
                     />
                   </svg>
                   <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                    <span class="font-semibold">Click to upload</span> or drag
-                    and drop
+                    <span class="font-semibold">Click to upload photo</span> 
+                    
                   </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">
-                    SVG, PNG, JPG or GIF (MAX. 800x400px)
-                  </p>
+                  
                 </div>
                 <input id="dropzone-file" type="file" class="hidden" name="photo" />
               </label>
@@ -315,6 +313,66 @@
             </ul>
             </div>
           </div>
+          <!-- //////// -->
+          <div class="fhoto flex flex-col items-center mt-8 gap-[20px] pb-6 w-[100%]">
+           
+     
+            <h2><b>Expériences professionnelles</b></h2>
+            <div class="w-[90%]  flex flex-col border p-3 gap-[10px] rounded">
+            <!-- ubiversity -->
+             <div class="  w-[100%] flex justify-between">
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>jobTitle</b></label>
+              <input type="text" class="border rounded h-8 p-2" id="ijob">
+            </div>
+            <!-- info -->
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>company</b></label>
+              <input type="text" class="border rounded h-8 p-2" id="icom">
+            </div>
+            </div>
+             <div class="  w-[100%] flex justify-between">
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>contractType</b></label>
+                <select class="border h-8 rounded" id="contra">
+                  <option value="none">select</option>
+                  <option value="CDI">CDI</option>
+                  <option value="CDD">CDD</option>
+                  <option value="Stage">Stage</option>
+                  <option value="Freelance">Freelance</option>
+                  <option value="Alternance">Alternance</option>
+                  <option value="Temps partiel">Temps partiel</option>
+                </select>
+            </div>
+            <!-- info -->
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>location</b></label>
+              <input type="text" class="border rounded h-8 p-2" id="iloc">
+            </div>
+            </div>
+             <div class="  w-[100%] flex justify-between">
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>date de debut</b></label>
+              <input type="text" class="border rounded h-8 p-2" id="ids">
+            </div>
+            <!-- info -->
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>date de termene</b></label>
+              <input type="text" class="border rounded h-8 p-2" id="ide">
+            </div>
+            </div>
+            
+            <div class="w-[100%] flex flex-col">
+              <label ><b>achievements</b></label>
+              <textarea class="border rounded" id="ach"></textarea>
+            </div>
+            <button type="button" onclick="addEx()" class="border w-[100%] rounded bg-gray-200">add</button>
+            <div class="mt-5 ">
+            <ul class="  flex flex-col gap-[5px] " id="ex"> 
+              
+            </ul>
+            </div>
+          </div>
 
           </div>
         </form>
@@ -322,69 +380,30 @@
       </div>
       <!-- section 4 -->
        <div class="flex flex-col items-center justify-center gap-[30px] action">
-      <section class=" section w-[100%] flex justify-center items-center " id="info">
-        <form action="/" class="bg-white w-[90%] rounded-lg shadow-lg ">
-          <div class="fhoto flex flex-col items-center mt-8 gap-[20px] pb-6">
-           
-            <!-- name -->
-            <div id="user" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="user1">Ferst Name</label>
-              <input type="text" id="user1" class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="user2">Last Name</label>
-              <input type="text" id="user2" class="border-1 rounded h-8 p-2">
-              </div>
+         <section class=" section w-[100%] flex justify-center items-center " id="info">
+           <form action="/" class="bg-white w-[90%] rounded-lg shadow-lg min-h-screen">
+             <div class="fhoto flex flex-col items-center mt-8 gap-[20px] pb-6">
+               <h2><b>certifica</b></h2>
+            <div class="w-[90%] border rounded p-3 flex flex-col gap-[10px]">
+             <div class="  w-[100%] flex justify-between">
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>nom de certifica</b></label>
+              <input type="text" class="border rounded h-8 p-2" id="inom">
             </div>
-            <!--  -->
-            <div id="email" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="e">Email</label>
-              <input type="text" id="e" class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="N">Phone Number</label>
-              <input type="text" id="N" class="border-1 rounded h-8 p-2">
-              </div>
+            <!-- info -->
+              <div class="adress flex flex-col w-[45%] ">
+              <label><b>Link</b></label>
+              <input type="text" class="border rounded h-8 p-2" id="ilink">
             </div>
-            <!-- adress -->
-            <div class="adress flex flex-col w-[90%] ">
-              <label>Address</label>
-              <input type="text" class="border rounded h-8 p-2">
             </div>
-            <!-- moreinfo -->
-              <div id="email" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >City</label>
-              <input type="text" class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >Nationality</label>
-              <input type="text"  class="border-1 rounded h-8 p-2">
-              </div>
+            <button type="button" onclick="addcertifica()" class="border w-[100%] rounded bg-gray-200">add</button>
+            <div class="mt-5 ">
+            <ul class="  flex flex-col gap-[5px] " id="nom"> 
+              
+            </ul>
             </div>
-              <!-- birth -->
-               <div id="email" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >Date of birth</label>
-              <input type="date"  class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >Place of birth</label>
-              <input type="text"  class="border-1 rounded h-8 p-2">
-              </div>
             </div>
-            <!-- linkdin -->
-              <div class="adress flex flex-col w-[90%] ">
-              <label>linkedin</label>
-              <input type="text" class="border rounded h-8 p-2">
-            </div>
-            <!-- sites -->
-              <div class="adress flex flex-col w-[90%] ">
-              <label>link</label>
-              <input type="text" class="border rounded h-8 p-2">
-            </div>
+
           </div>
         </form>
       </section>
@@ -395,81 +414,27 @@
         <form action="/" class="bg-white w-[90%] rounded-lg shadow-lg ">
           <div class="fhoto flex flex-col items-center mt-8 gap-[20px] pb-6">
            
-            <!-- name -->
-            <div id="user" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="user1">Ferst Name</label>
-              <input type="text" id="user1" class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="user2">Last Name</label>
-              <input type="text" id="user2" class="border-1 rounded h-8 p-2">
-              </div>
-            </div>
-            <!--  -->
-            <div id="email" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="e">Email</label>
-              <input type="text" id="e" class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label for="N">Phone Number</label>
-              <input type="text" id="N" class="border-1 rounded h-8 p-2">
-              </div>
-            </div>
-            <!-- adress -->
-            <div class="adress flex flex-col w-[90%] ">
-              <label>Address</label>
-              <input type="text" class="border rounded h-8 p-2">
-            </div>
-            <!-- moreinfo -->
-              <div id="email" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >City</label>
-              <input type="text" class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >Nationality</label>
-              <input type="text"  class="border-1 rounded h-8 p-2">
-              </div>
-            </div>
-              <!-- birth -->
-               <div id="email" class="flex justify-between w-[90%]">
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >Date of birth</label>
-              <input type="date"  class="border-1 rounded-md h-8 p-2">
-              </div>
-              <div  class="flex justify-center flex-col w-[45%] ">
-              <label >Place of birth</label>
-              <input type="text"  class="border-1 rounded h-8 p-2">
-              </div>
-            </div>
-            <!-- linkdin -->
-              <div class="adress flex flex-col w-[90%] ">
-              <label>linkedin</label>
-              <input type="text" class="border rounded h-8 p-2">
-            </div>
-            <!-- sites -->
-              <div class="adress flex flex-col w-[90%] ">
-              <label>link</label>
-              <input type="text" class="border rounded h-8 p-2">
-            </div>
+           
           </div>
         </form>
       </section>
       </div>
 <!-- buttons -->
-      <div class="nav-buttons flex items-center  justify-center gap-[65%] mb-10">
+      <div class="nav-buttons flex items-center  justify-center gap-[30%] mb-10">
+        <div>
         <button
-          class="prev cursor-pointer rounded-md px-10 py-2 text-[white] bg-red-500"
+          class="prev cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500"
         >
           prev
         </button>
+        </div>
+        <div>
         <button
           class="next cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500"
         >
           next
         </button>
+        </div>
       </div>
     </div>
   </body>

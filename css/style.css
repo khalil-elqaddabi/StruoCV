@@ -14,10 +14,21 @@
     padding: 5px;
     border: 1px solid black;
     display: flex;
+    
     justify-content: space-between;
     border-radius: 3px;
     /* background-color: aqua; */
 }
+.listx{
+    padding: 5px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 3px;
+    /* background-color: aqua; */
+}
+
 
 
 
