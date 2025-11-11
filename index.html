@@ -98,65 +98,69 @@
             <div id="user" class="flex justify-between w-[90%]">
               <div  class="flex justify-center flex-col w-[45%] ">
               <label for="user1">Ferst Name</label>
-              <input type="text" id="user1" class="border-1 rounded-md h-8 p-2">
+              <input type="text" id="first_name" class="border-1 rounded-md h-8 p-2">
+              <span id="f_name" class="color"></span>
               </div>
               <div  class="flex justify-center flex-col w-[45%] ">
               <label for="user2">Last Name</label>
-              <input type="text" id="user2" class="border-1 rounded h-8 p-2">
+              <input type="text" id="last_name" class="border-1 rounded h-8 p-2">
+              <span id="l_name" class="color"></span>
               </div>
             </div>
             <!--  -->
-            <div id="email" class="flex justify-between w-[90%]">
+            <div id="emailt" class="flex justify-between w-[90%]">
               <div  class="flex justify-center flex-col w-[45%] ">
               <label for="e">Email</label>
-              <input type="text" id="e" class="border-1 rounded-md h-8 p-2">
+              <input type="text" id="email" class="border-1 rounded-md h-8 p-2">
+              <span id="err_email" class="color"></span>
               </div>
               <div  class="flex justify-center flex-col w-[45%] ">
               <label for="N">Phone Number</label>
-              <input type="text" id="N" class="border-1 rounded h-8 p-2">
+              <input type="text" id="phone" class="border-1 rounded h-8 p-2">
+              <span id="err_p" class="color"></span>
               </div>
             </div>
             <!-- adress -->
             <div class="adress flex flex-col w-[90%] ">
               <label>Address</label>
-              <input type="text" class="border rounded h-8 p-2">
+              <input type="text" class="border rounded h-8 p-2" id="adress">
             </div>
             <!-- moreinfo -->
-              <div id="email" class="flex justify-between w-[90%]">
+              <div id="emailj" class="flex justify-between w-[90%]">
               <div  class="flex justify-center flex-col w-[45%] ">
               <label >City</label>
-              <input type="text" class="border-1 rounded-md h-8 p-2">
+              <input type="text" class="border-1 rounded-md h-8 p-2" id="city">
               </div>
               <div  class="flex justify-center flex-col w-[45%] ">
               <label >Nationality</label>
-              <input type="text"  class="border-1 rounded h-8 p-2">
+              <input type="text"  class="border-1 rounded h-8 p-2" id="national">
               </div>
             </div>
               <!-- birth -->
-               <div id="email" class="flex justify-between w-[90%]">
+               <div id="emailk" class="flex justify-between w-[90%]">
               <div  class="flex justify-center flex-col w-[45%] ">
               <label >Date of birth</label>
-              <input type="date"  class="border-1 rounded-md h-8 p-2">
+              <input type="date"  class="border-1 rounded-md h-8 p-2" id="date_birth">
               </div>
               <div  class="flex justify-center flex-col w-[45%] ">
               <label >Place of birth</label>
-              <input type="text"  class="border-1 rounded h-8 p-2">
+              <input type="text"  class="border-1 rounded h-8 p-2" id="origin">
               </div>
             </div>
             <!-- linkdin -->
               <div class="adress flex flex-col w-[90%] ">
               <label>linkedin</label>
-              <input type="text" class="border rounded h-8 p-2">
+              <input type="text" class="border rounded h-8 p-2" id="linkdin">
             </div>
             <!-- sites -->
               <div class="adress flex flex-col w-[90%] ">
               <label>Portofilio</label>
-              <input type="text" class="border rounded h-8 p-2">
+              <input type="text" class="border rounded h-8 p-2" id="Portofilio">
             </div>
             <!-- GitHub -->
               <div class="adress flex flex-col w-[90%] ">
               <label>GitHub</label>
-              <input type="text" class="border rounded h-8 p-2">
+              <input type="text" class="border rounded h-8 p-2" id="github">
             </div>
             
           </div>
@@ -174,7 +178,7 @@
             <!-- title -->
             <div class="adress flex flex-col w-[90%] ">
               <label>Votre titre professionnel</label>
-              <input type="text" class="border rounded h-8 p-2">
+              <input type="text" class="border rounded h-8 p-2" id="title_pro">
             </div>
             <!-- texteara -->
                <div class="about-section  text-black pt-5 w-[90%]">
@@ -186,7 +190,7 @@
               <div class="adress flex flex-col w-[90%] ">
                 <label><b>Compétences techniques (Hard Skills)</b></label>
                 <div class="adress flex justify-between items-center w-[100%] " >
-              <input type="text" class="       border rounded h-8 p-2 w-[88%]" id="condidat">
+              <input type="text" class="border rounded h-8 p-2 w-[88%]" id="condidat">
               <button type="button" onclick="addCompitance()"  class=" addC w-[10%]  border rounded " id="add_compt">add</button>
               
             </div >
@@ -423,7 +427,7 @@
       <div class="nav-buttons flex items-center  justify-center gap-[30%] mb-10">
         <div>
         <button
-          class="prev cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500"
+         onclick="nextval()" class="prev cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500"
         >
           prev
         </button>

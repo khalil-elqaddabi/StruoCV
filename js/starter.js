@@ -15,6 +15,7 @@ function updateProgressBar() {
  progress.style.width = `${step}%`
  if(currentStep===1){
   progress.style.width ='0%';
+  
  }
  if(currentStep===2){
   progress.style.width ='25%'; 
@@ -65,15 +66,20 @@ showSections()
 
 
 nextbtn.addEventListener("click",() =>{
-  if(currentStep < totalSteps){
+  let valid = false ; 
+  if(currentStep == 1){
+   valid = page1()
+  }
+  if(valid && currentStep < totalSteps){
     currentStep++
     updateProgressBar()
     showSections()
     updateStepDisplay()
     updatenformDisplay()
+  }
     
     progress.style.backgroundColor = "gray"
-  }
+  
 })
 
 prevbtn.addEventListener("click", () => {
@@ -306,6 +312,76 @@ function addcertifica(){
     inom.value = "";
   link.value = "";
   
+}
+
+
+// =======================validatuyion===============================//
+
+function page1(){
+  // inputs
+  const fname = document.getElementById('first_name').value.trim()
+  const lname = document.getElementById('last_name').value.trim()
+  const email = document.getElementById('email').value.trim()
+  const phone = document.getElementById('phone').value.trim()
+
+  // spans
+  const allerrors = document.getElementsByClassName('color')
+  const errFname = document.getElementById('f_name')
+  const errLname = document.querySelector('#l_name')
+  const erremail = document.querySelector('#err_email')
+  const errphone = document.querySelector('#err_p')
+ console.log("errors" ,allerrors)
+Array.from(allerrors).forEach((error)=> {
+  error.style.color='red'
+  error.textContent=""
+})
+ /* regexes */
+  const nameRegex = /^[A-Za-z\s]{3,}$/;
+  const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+  const phoneRegex = /^\+212[67]\d{8}$/;
+  const linksRegex = /^https?:\/\/[^\s]+$/;
+
+  let isValid = true;
+
+  // Validate name
+  if (fname == "") {
+    errFname.textContent = "Name is required";
+    isValid = false;
+  } else if (!nameRegex.test(fname)) {
+    errFname.textContent = "Name must contain only letters (min 3 characters)";
+    isValid = false;
+  }
+  if (lname === "") {
+    errLname.textContent = "Name is required";
+    isValid = false;
+  } else if (!nameRegex.test(fname)) {
+    errLname.textContent = "Name must contain only letters (min 3 characters)";
+    isValid = false;
+  }
+
+  // Validate email
+  if (email === "") {
+    erremail.textContent = "Email is required";
+    isValid = false;
+  } else if (!emailRegex.test(email)) {
+    erremail.textContent = "Please enter a valid email address";
+    isValid = false;
+  }
+
+  // Validate phone
+  if (phone === "") {
+    errphone.textContent = "Phone number is required";
+    isValid = false;
+  } else if (!phoneRegex.test(phone)) {
+    errphone.textContent = "Phone must be in format: +212XXXXXXXXX";
+    isValid = false;
+  }
+
+  
+
+  return isValid;
+
+
 }
 
 
