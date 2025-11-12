@@ -7,29 +7,80 @@ const number2 = document.querySelector(".number2")
 const info1 = document.getElementById("info")
 const section = document.querySelectorAll(".action")
 
+
+
+// inputs //
+// p1
+const first_name =document.getElementById('first_name')
+const last_name =document.getElementById('last_name')
+const Email =document.getElementById('email')
+const Phone =document.getElementById('phone')
+const Adress =document.getElementById('adress')
+const City =document.getElementById('city')
+const Nationality =document.getElementById('national')
+const Dateofbirth =document.getElementById('date_birth')
+const Placeofbirth =document.getElementById('origin')
+const LInkdin =document.getElementById('linkdin')
+const Portofilio =document.getElementById('Portofilio')
+const GitHub =document.getElementById('github')
+// p2
+const Ptitle =document.getElementById('title_pro')
+// const Description =document.getElementById('editor-container')
+const Softskills =[]
+const compitancelist = []
+const Loisir =[]
+const languestok = []
+const Langues =document.getElementById('ilangue')
+const Niveau =document.getElementById('choi')
+// p3
+const University =[]
+const experienceslist = []
+const Certifica =[]
+const Degree =document.getElementById('iuni')
+const Field =document.getElementById('iinfo')
+const Institution =document.getElementById('inst')
+const lLocation =document.getElementById('loc')
+const Dateofstrt =document.getElementById('ds')
+const Dateofend =document.getElementById('de')
+// Expériences professionnelles
+const Job = document.getElementById('ijob')
+const Company = document.getElementById('icom')
+const ContractType = document.getElementById('iloc')
+const Date_start = document.getElementById('ids')
+const Date_end = document.getElementById('ide')
+const Achievements = document.getElementById('ach')
+// p4
+const certifica = document.getElementById('inom')
+const link = document.getElementById('ilink')
+
+
+
+
 let step = 0;
 let totalSteps = 5
 let currentStep =1
+
+
 
 function updateProgressBar() {
  progress.style.width = `${step}%`
  if(currentStep===1){
   progress.style.width ='0%';
   
- }
- if(currentStep===2){
-  progress.style.width ='25%'; 
   }
- if(currentStep===3){progress.style.width ='50%';}
- if(currentStep===4){progress.style.width ='75%';}
- if(currentStep===5){progress.style.width ='100%';}
+  if(currentStep===2){
+    progress.style.width ='25%'; 
+    }
+  if(currentStep===3){progress.style.width ='50%';}
+  if(currentStep===4){progress.style.width ='75%';}
+  if(currentStep===5){progress.style.width ='100%';}
 }
 
 function updateStepDisplay() {
   steps.forEach( ( s, index) =>{
     if(index < currentStep) {
       s.classList.add("step")
-       console.log("step", currentStep, "index", index);
+        console.log("step", currentStep, "index", index);
     }else{
       s.classList.remove("step")
     }
@@ -67,18 +118,29 @@ showSections()
 
 nextbtn.addEventListener("click",() =>{
   let valid = false ; 
-  if(currentStep == 1){
-   valid = page1()
-  }
-  if(valid && currentStep < totalSteps){
+  // if(currentStep == 1){
+  //  valid = page1()
+  // }
+  // if(currentStep == 2){
+  //   valid= page2()
+  // }
+  // if(currentStep == 3){
+  //   valid= page3()
+  // }
+  // if(currentStep == 4){
+  //   valid= page4()
+  // }
+  // valid && 
+  if(currentStep < totalSteps){
     currentStep++
     updateProgressBar()
     showSections()
     updateStepDisplay()
     updatenformDisplay()
+    theam()
+    progress.style.backgroundColor = "gray"
   }
     
-    progress.style.backgroundColor = "gray"
   
 })
 
@@ -89,8 +151,8 @@ prevbtn.addEventListener("click", () => {
     updateStepDisplay()
     showSections()
     updatepformDisplay()
-    
   }
+    
 })
 
 
@@ -107,13 +169,14 @@ const quill = new Quill('#editor-container', {
   }
 });
 // compitance
+
 function addCompitance(){
   const ul=document.getElementById('compit')
   const condidat=document.getElementById('condidat')
   if(condidat.value.trim() === "") return;
   let li =document.createElement('li')
   li.classList.add('listC')
-  
+  compitancelist.push(condidat.value)
   li.innerHTML = `
     <span>${condidat.value}</span>
     <button class="removeBtn text-red-500 font-bold ml-3">X</button>
@@ -132,6 +195,7 @@ function addSoft(){
   const ul=document.getElementById('soft')
   const soft=document.getElementById('isoft')
   if(soft.value.trim() === "") return;
+  Softskills.push(soft.value)
   let li =document.createElement('li')
   li.classList.add('listC')
   
@@ -153,6 +217,7 @@ function addLoi(){
   const ul=document.getElementById('loi')
   const soft=document.getElementById('iloi')
   if(soft.value.trim() === "") return;
+  Loisir.push(soft.value)
   let li =document.createElement('li')
   li.classList.add('listC')
   
@@ -179,6 +244,7 @@ function addLangue(){
   if(ilangue.value.trim() === "") return;
   let li =document.createElement('li')
   li.classList.add('listC')
+  languestok.push(`${ilangue.value} : ${choi.value}`)
 
   
   
@@ -210,6 +276,7 @@ function addUni(){
   const ds=document.getElementById('ds')
   const de=document.getElementById('de')
   if(iuni.value.trim() === "" || info.value.trim()==='') return;
+  University.push(`${iuni.value} - ${info.value} - ${inst.value} - ${loc.value} - ${ds.value} - ${de.value}`)
   let li =document.createElement('li')
   li.classList.add('listC')
 
@@ -253,6 +320,7 @@ function addEx(){
   const ds =  document.getElementById('ids')
   const de =  document.getElementById('ide')
   const ach =  document.getElementById('ach')
+  experienceslist.push(`${job.value} - ${comp.value} - ${contra.value} - ${loc.value} - ${ds.value} - ${de.value} - ${ach.value}`)
   let li=document.createElement('li')
   li.classList.add('listx')
 
@@ -290,7 +358,7 @@ function addcertifica(){
   const ul = document.getElementById('nom')
   const inom =  document.getElementById('inom')
   const link =  document.getElementById('ilink')
- 
+ Certifica.push(`${inom.value} - ${link.value}`)
   let li=document.createElement('li')
   li.classList.add('listC')
 
@@ -317,6 +385,9 @@ function addcertifica(){
 
 // =======================validatuyion===============================//
 
+
+// page1 validation
+
 function page1(){
   // inputs
   const fname = document.getElementById('first_name').value.trim()
@@ -325,13 +396,13 @@ function page1(){
   const phone = document.getElementById('phone').value.trim()
 
   // spans
-  const allerrors = document.getElementsByClassName('color')
+  const allerrors = document.querySelectorAll('.color')
   const errFname = document.getElementById('f_name')
   const errLname = document.querySelector('#l_name')
   const erremail = document.querySelector('#err_email')
   const errphone = document.querySelector('#err_p')
  console.log("errors" ,allerrors)
-Array.from(allerrors).forEach((error)=> {
+allerrors.forEach((error)=> {
   error.style.color='red'
   error.textContent=""
 })
@@ -384,6 +455,116 @@ Array.from(allerrors).forEach((error)=> {
 
 }
 
+// page2 validation
+// function page2(){
+
+   // inputs
+  // const fname = document.getElementById('first_name').value.trim()
+  // const lname = document.getElementById('last_name').value.trim()
+  // const email = document.getElementById('email').value.trim()
+  // const phone = document.getElementById('phone').value.trim()
+
+  // spans
+//   const allerrors = document.querySelectorAll('.color')
+//   const errtitle = document.getElementById('err_title')
+//   const errLname = document.querySelector('#l_name')
+//   const erremail = document.querySelector('#err_email')
+//   const errphone = document.querySelector('#err_p')
+//  console.log("errors" ,allerrors)
+// allerrors.forEach((error)=> {
+//   error.style.color='red'
+//   error.textContent=""
+// })
+//   let isValid = true;
+
+  // Validate name
+  // if (fname == "") {
+  //   errFname.textContent = "Name is required";
+  //   isValid = false;
+  // } 
+  // if (lname === "") {
+  //   errLname.textContent = "Name is required";
+  //   isValid = false;
+  // } 
+
+  // Validate email
+  // if (email === "") {
+  //   erremail.textContent = "Email is required";
+  //   isValid = false;
+  // } 
+  // // Validate phone
+  // if (phone === "") {
+  //   errphone.textContent = "Phone number is required";
+  //   isValid = false;
+  // } 
+
+  
+
+//   return isValid;
+  
+// }
 
 
 
+
+
+
+
+
+
+function theam(){
+
+
+const obj = {
+  prenom : first_name.value,
+  nom : last_name.value,
+  lemail : Email.value,
+  lphone : Phone.value,
+  ladress : Adress.value,
+  ville : City.value,
+  lnationality : Nationality.value,
+  ldateofbirth : Dateofbirth.value,
+  lplaceofbirth : Placeofbirth.value,
+  llinkedin : LInkdin.value,
+  lportofilio : Portofilio.value,
+  lgithub : GitHub.value,
+  lprotitle : Ptitle.value,
+  // ldescription : Descrption.value,
+  lcompitance : compitancelist
+,
+  lsoftskills : Softskills,
+  lloisir : Loisir,
+  llangues : languestok,
+  ldegree : Degree.value,
+  lfield : Field.value,
+  univercity : University,
+  experienceslist : experienceslist,
+  llocation : lLocation.value,
+  ldateofstart : Dateofstrt.value,
+  ldateodend : Dateofend.value,
+  ljob : Job.value,
+  lcompany : Company.value,
+  lcontracttype : ContractType.value,
+  ldate_start : Date_start.value,
+  ldate_end : Date_end.value,
+  lachivements : Achievements.value,
+  certifica : Certifica,
+  lcertifica : Certifica.value,
+  llink : link.value,
+
+
+}
+const keys = Object.keys(obj)
+const valueobj = Object.values(obj)
+console.log( keys)
+console.log(valueobj)
+for(let i=0 ; i<keys.length; i++){
+  localStorage.setItem(keys[i], valueobj[i])
+}
+// localStorage.setItem("imge".image_view.src)
+
+
+// obj.lcompitance.forEach( compet =>{
+//   document.getElementById
+// })
+}

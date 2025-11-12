@@ -179,18 +179,23 @@
             <div class="adress flex flex-col w-[90%] ">
               <label>Votre titre professionnel</label>
               <input type="text" class="border rounded h-8 p-2" id="title_pro">
+              <span id="err_title" class="color"></span>
+
+              
             </div>
             <!-- texteara -->
                <div class="about-section  text-black pt-5 w-[90%]">
                   <label for="description" class="block "><b>Description</b></label>
                   <div id="editor-container" style="height: 150px; background-color: white;;" class="border"></div>
-               </div>
-             
+              </div>
+            
             <!-- compitence -->
               <div class="adress flex flex-col w-[90%] ">
                 <label><b>Compétences techniques (Hard Skills)</b></label>
                 <div class="adress flex justify-between items-center w-[100%] " >
               <input type="text" class="border rounded h-8 p-2 w-[88%]" id="condidat">
+                            <span id="err_p" class="color"></span>
+
               <button type="button" onclick="addCompitance()"  class=" addC w-[10%]  border rounded " id="add_compt">add</button>
               
             </div >
@@ -427,7 +432,7 @@
       <div class="nav-buttons flex items-center  justify-center gap-[30%] mb-10">
         <div>
         <button
-         onclick="nextval()" class="prev cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500"
+          class="prev cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500"
         >
           prev
         </button>
@@ -435,6 +440,7 @@
         <div>
         <button
           class="next cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-500"
+          onclick=""
         >
           next
         </button>
