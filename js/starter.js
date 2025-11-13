@@ -396,7 +396,7 @@ function addcertifica(){
   const ul = document.getElementById('nom')
   const inom =  document.getElementById('inom')
   const link =  document.getElementById('ilink')
- Certifica.push(`${inom.value} - ${link.value}`)
+ Certifica.push(`${inom.value} : ${link.value}`)
   let li=document.createElement('li')
   li.classList.add('listC')
 
@@ -655,14 +655,14 @@ function sectioncv(){
         <img src=" ${image_view.src}" alt="Photo" class="w-24 h-24 rounded-full border-2 border-white">
         <div>
           <h1 class="text-3xl font-bold text-black">${obj.prenom} ${obj.nom}</h1>
-          <p class="mt-1 text-gray-300">Développeur FULL STACK</p>
+          <p class="mt-1 text-gray-300">${obj.lprotitle}</p>
         </div>
       </div>
       <div class="mt-4 md:mt-0 text-right text-gray-300 text-sm">
-        <p>Email: <a href=""> elqaddabikhalil@gmail.com</a></p>
+        <p>Email:  ${obj.lemail}</p>
         <p>Téléphone: ${obj.lphone}</p>
-        <p>Ville: ait ourir marakech</p>
-        <p>Nationalité: marocan</p>
+        <p>Ville: ${obj.ville}</p>
+        <p>Nationalité: ${obj. lnationality}</p>
       </div>
     </div>
 
@@ -672,26 +672,24 @@ function sectioncv(){
       <div class="space-y-6">
         <div>
           <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Informations Personnelles</h2>
-          <p><strong>Date de naissance:</strong> 12/06/2004</p>
-          <p><strong>Lieu de naissance:</strong> ait ourir</p>
-          <p><strong>LinkedIn:</strong> <a href="#" class="text-gray-700 hover:text-gray-900">linkedin.com</a></p>
-          <p><strong>Portfolio:</strong> <a href="#" class="text-gray-700 hover:text-gray-900">jeandupont.com</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/khalil-elqaddabi" class="text-gray-700 hover:text-gray-900">github.com</a></p>
+          <p><strong>Date de naissance:</strong> ${obj.ldateofbirth}</p>
+          <p><strong>Lieu de naissance:</strong> ${obj.lplaceofbirth}</p>
+          <p><strong>LinkedIn:</strong> <a href="${obj.llinkedin}" class="text-gray-700 hover:text-gray-900">linkedin.com</a></p>
+          <p><strong>Portfolio:</strong> <a href="${obj.lportofilio}" class="text-gray-700 hover:text-gray-900">Portofilio.com</a></p>
+          <p><strong>GitHub:</strong> <a href="${obj.lgithub}" class="text-gray-700 hover:text-gray-900">github.com</a></p>
         </div>
 
         <div>
           <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Langues</h2>
           <ul class="list-disc list-inside text-gray-700" id="languecv">
-          
+        
           </ul>
         </div>
 
         <div>
           <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Hobbies</h2>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>Lecture</li>
-            <li>Voyages</li>
-            <li>Programmation</li>
+          <ul class="list-disc list-inside text-gray-700"id="loisircv">
+            
           </ul>
         </div>
       </div>
@@ -700,45 +698,32 @@ function sectioncv(){
       <div class="md:col-span-2 space-y-6">
         <div>
           <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Éducation</h2>
-          <div class="mb-2 text-gray-700">
-            <p><strong>Diplôme:</strong> Master en Informatique</p>
-            <p><strong>Domaine:</strong> Développement Web</p>
-            <p><strong>Université:</strong> Université de Paris</p>
+          <div class="mb-2 text-gray-700" id="universitycv">
+            
           </div>
         </div>
 
         <div>
           <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Expérience Professionnelle</h2>
-          <div class="mb-2 text-gray-700">
-            <p><strong>Poste:</strong> Développeur Front-End</p>
-            <p><strong>Entreprise:</strong> XYZ Tech</p>
-            <p><strong>Lieu:</strong> Paris</p>
-            <p><strong>Contrat:</strong> CDI</p>
-            <p><strong>Période:</strong> Janvier 2020 - Décembre 2023</p>
-            <p><strong>Réalisations:</strong> Création d'applications web performantes et maintenables.</p>
+          <div class="mb-2 text-gray-700" id="experiencecv">
+           
           </div>
         </div>
 
         <div>
           <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Compétences</h2>
-          <p class="mb-2"><strong>Techniques:</strong> 
-            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">HTML</span>
-            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">CSS</span>
-            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">JavaScript</span>
-            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">React</span>
+          <p class="mb-2" id="technique"><strong >Techniques:</strong> 
+            
           </p>
-          <p><strong>Soft Skills:</strong>
-            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Communication</span>
-            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Travail en équipe</span>
-            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Résolution de problèmes</span>
+          <p id="softskil"><strong>Soft Skills:</strong>
+            
           </p>
         </div>
 
         <div>
           <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Certifications</h2>
-          <ul class="list-disc list-inside text-gray-700">
-            <li>Certification Développement Web Avancé</li>
-            <li>Certification Analyse de Données</li>
+          <ul class="list-disc list-inside text-gray-700" id="certificacv">
+           
           </ul>
         </div>
       </div>
@@ -856,12 +841,42 @@ function sectioncv(){
 </div>
 </form>
   `
+  languestok.forEach( langue =>{
   const ul = document.getElementById('languecv')
-languestok.forEach( langue =>{
   ul.innerHTML += `<li>${langue}</li>`
   
 })
-console.log(languestok)
+Loisir.forEach( loisir =>{
+  const ul = document.getElementById('loisircv')
+  ul.innerHTML += `<li>${loisir}</li>`
+  
+})
+Certifica.forEach( cirti =>{
+  const ul = document.getElementById('certificacv')
+  ul.innerHTML += `<li>${cirti}</li>`
+  
+})
+University.forEach( uni =>{
+  const div = document.getElementById('universitycv')
+  div.innerHTML += `<li>${uni}</li>`
+  
+})
+experienceslist.forEach( exper =>{
+  const div = document.getElementById('experiencecv')
+  div.innerHTML += `<li>${exper}</li>`
+  
+})
+compitancelist.forEach( teck =>{
+  const p = document.getElementById('technique')
+  p.innerHTML += `<span>${teck}</span>`
+  
+})
+Softskills.forEach( skill =>{
+  const p = document.getElementById('softskil')                                 
+  p.innerHTML += `<span>${skill}</span>`
+  
+})
+// console.log(languestok)
 }
 
 const upload_img = document.getElementById('dropzone-file')
