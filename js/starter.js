@@ -73,7 +73,7 @@ function updateProgressBar() {
     }
   if(currentStep===3){progress.style.width ='50%';}
   if(currentStep===4){progress.style.width ='75%';}
-  if(currentStep===5){progress.style.width ='100%';}
+  if(currentStep===5){progress.style.width ='100%'; sectioncv();}
 }
 
 function updateStepDisplay() {
@@ -137,6 +137,7 @@ nextbtn.addEventListener("click",() =>{
     updateStepDisplay()
     updatenformDisplay()
        saveAllData()
+       
 
     progress.style.backgroundColor = "gray"
   }
@@ -442,6 +443,9 @@ function page1(){
   const errLname = document.querySelector('#l_name')
   const erremail = document.querySelector('#err_email')
   const errphone = document.querySelector('#err_p')
+  const errlinked = document.querySelector('#err_linkd')
+  const errporto = document.querySelector('#err_porto')
+  const errgit = document.querySelector('#err_git')
  console.log("errors" ,allerrors)
 allerrors.forEach((error)=> {
   error.style.color='red'
@@ -452,6 +456,7 @@ allerrors.forEach((error)=> {
   const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
   const phoneRegex = /^\+212[67]\d{8}$/;
   const linksRegex = /^https?:\/\/[^\s]+$/;
+  
 
   let isValid = true;
 
@@ -480,6 +485,7 @@ allerrors.forEach((error)=> {
     isValid = false;
   }
 
+
   // Validate phone
   if (phone === "") {
     errphone.textContent = "Phone number is required";
@@ -488,12 +494,34 @@ allerrors.forEach((error)=> {
     errphone.textContent = "Phone must be in format: +212XXXXXXXXX";
     isValid = false;
   }
-
-  
-
+if( LInkdin.value === ""){
+  errlinked.textContent = "Please enter your linkdin url";
+  isValid = false;
+}else if( !linksRegex.test(LInkdin.value)){
+    errlinked.textContent = "Please enter a valid linkdin url";
+  isValid = false;
+    
+    
+  }
+if( Portofilio.value === ""){
+  errporto.textContent = "Please enter your linkdin url";
+  isValid = false;
+}else if( !linksRegex.test(Portofilio.value)){
+    errporto.textContent = "Please enter a valid linkdin url";
+  isValid = false;
+    
+    
+  }
+if( GitHub.value === ""){
+  errgit.textContent = "Please enter your linkdin url";
+  isValid = false;
+}else if( !linksRegex.test(GitHub.value)){
+    errgit.textContent = "Please enter a valid linkdin url";
+  isValid = false;
+    
+    
+  }
   return isValid;
-
-
 }
 
 // page2 validation
@@ -571,9 +599,9 @@ function saveAllData(){
   lportofilio : Portofilio.value,
   lgithub : GitHub.value,
   lprotitle : Ptitle.value,
-  // ldescription : Descrption.value,
+  description :  quill.root.innerHTML,
   lcompitance : compitancelist
-,
+  ,
   lsoftskills : Softskills,
   lloisir : Loisir,
   llangues : languestok,
@@ -593,12 +621,12 @@ function saveAllData(){
   certifica : Certifica,
   lcertifica : Certifica.value,
   llink : link.value,
-
-
+  
+  
 }
 
-   localStorage.setItem("cvdata" ,JSON.stringify(obj))
-   
+localStorage.setItem("cvdata" ,JSON.stringify(obj))
+
 }
 // const keys = Object.keys(obj)
 // const valueobj = Object.values(obj)
@@ -614,3 +642,247 @@ function saveAllData(){
 // obj.lcompitance.forEach( compet =>{
 //   document.getElementById
 // })
+
+function dcv1(){
+  var element = document.getElementById('cv1');
+var opt = {
+  margin:       1,
+  filename:     'myfile.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+
+// New Promise-based usage:
+html2pdf().set(opt).from(element).save();
+
+// Old monolithic-style usage:
+html2pdf(element, opt);
+}
+function sectioncv(){
+  const section = document.getElementById("section5")
+  section.innerHTML=`
+   <form action="/" class="bg-white w-[90%] rounded-lg shadow-lg ">
+          <div class="fhoto flex flex-col items-center mt-8 gap-[20px] pb-6 flex flex-col gap-[100px]">
+           
+     
+            <h2><b>Prévisualisation du CV</b></h2>
+            <!-- cv 1 --> 
+          <div>
+          <div id="cv1">
+           <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden  border">
+    <!-- Header -->
+    <div class=" text-white p-6 flex flex-col md:flex-row md:items-center md:justify-between border-b border-gray-300">
+      <div class="flex items-center space-x-4">
+        <!-- Profile Image -->
+        <img src="https://intranet.youcode.ma/storage/users/profile/1636-1760996311.png" alt="Photo" class="w-24 h-24 rounded-full border-2 border-white">
+        <div>
+          <h1 class="text-3xl font-bold text-black">${obj.prenom} ${obj.nom}</h1>
+          <p class="mt-1 text-gray-300">Développeur FULL STACK</p>
+        </div>
+      </div>
+      <div class="mt-4 md:mt-0 text-right text-gray-300 text-sm">
+        <p>Email: <a href=""> elqaddabikhalil@gmail.com</a></p>
+        <p>Téléphone: ${obj.lphone}</p>
+        <p>Ville: ait ourir marakech</p>
+        <p>Nationalité: marocan</p>
+      </div>
+    </div>
+
+
+    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Left Column -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Informations Personnelles</h2>
+          <p><strong>Date de naissance:</strong> 12/06/2004</p>
+          <p><strong>Lieu de naissance:</strong> ait ourir</p>
+          <p><strong>LinkedIn:</strong> <a href="#" class="text-gray-700 hover:text-gray-900">linkedin.com</a></p>
+          <p><strong>Portfolio:</strong> <a href="#" class="text-gray-700 hover:text-gray-900">jeandupont.com</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/khalil-elqaddabi" class="text-gray-700 hover:text-gray-900">github.com</a></p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Langues</h2>
+          <ul class="list-disc list-inside text-gray-700" id="languecv">
+          
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Hobbies</h2>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Lecture</li>
+            <li>Voyages</li>
+            <li>Programmation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="md:col-span-2 space-y-6">
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Éducation</h2>
+          <div class="mb-2 text-gray-700">
+            <p><strong>Diplôme:</strong> Master en Informatique</p>
+            <p><strong>Domaine:</strong> Développement Web</p>
+            <p><strong>Université:</strong> Université de Paris</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Expérience Professionnelle</h2>
+          <div class="mb-2 text-gray-700">
+            <p><strong>Poste:</strong> Développeur Front-End</p>
+            <p><strong>Entreprise:</strong> XYZ Tech</p>
+            <p><strong>Lieu:</strong> Paris</p>
+            <p><strong>Contrat:</strong> CDI</p>
+            <p><strong>Période:</strong> Janvier 2020 - Décembre 2023</p>
+            <p><strong>Réalisations:</strong> Création d'applications web performantes et maintenables.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Compétences</h2>
+          <p class="mb-2"><strong>Techniques:</strong> 
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">HTML</span>
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">CSS</span>
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">JavaScript</span>
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">React</span>
+          </p>
+          <p><strong>Soft Skills:</strong>
+            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Communication</span>
+            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Travail en équipe</span>
+            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Résolution de problèmes</span>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Certifications</h2>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Certification Développement Web Avancé</li>
+            <li>Certification Analyse de Données</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+  <div class="mt-10 flex justify-center  ">
+    <button type="button" onclick="dcv1()" class=" cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-600"> telecharge</button>
+  </div>
+          </div>
+<!-- cv 2 -->
+ <div>
+ <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden border">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row items-center justify-between p-6 border-b border-gray-300">
+      <div class="text-left md:text-left">
+        <h1 class="text-3xl font-bold text-gray-900">Jean Dupont</h1>
+        <p class="mt-1 text-gray-600">Ingénieur Logiciel</p>
+        <p class="mt-2 text-gray-500 text-sm">Email: jean.dupont@example.com</p>
+        <p class="text-gray-500 text-sm">Téléphone: +33 6 12 34 56 78</p>
+        <p class="text-gray-500 text-sm">Ville: Paris, France</p>
+        <p class="text-gray-500 text-sm">Nationalité: Française</p>
+      </div>
+      <!-- Profile Image on the right -->
+      <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0">
+        <img src="https://intranet.youcode.ma/storage/users/profile/1636-1760996311.png" alt="Photo" class="w-24 h-24 rounded-full border-2 border-gray-300">
+      </div>
+    </div>
+
+    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Left Column -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Informations Personnelles</h2>
+          <p><strong>Date de naissance:</strong> 1 Janvier 1990</p>
+          <p><strong>Lieu de naissance:</strong> Paris</p>
+          <p><strong>LinkedIn:</strong> <a href="#" class="text-gray-700 hover:text-gray-900">linkedin.com/in/jeandupont</a></p>
+          <p><strong>Portfolio:</strong> <a href="#" class="text-gray-700 hover:text-gray-900">jeandupont.com</a></p>
+          <p><strong>GitHub:</strong> <a href="#" class="text-gray-700 hover:text-gray-900">github.com/jeandupont</a></p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Langues</h2>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Français (natif)</li>
+            <li>Anglais (avancé)</li>
+            <li>Espagnol (intermédiaire)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Hobbies</h2>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Lecture</li>
+            <li>Voyages</li>
+            <li>Programmation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="md:col-span-2 space-y-6">
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Éducation</h2>
+          <div class="mb-2 text-gray-700">
+            <p><strong>Domaine:</strong> Développement Web</p>
+            <p><strong>Université:</strong> Université de Paris</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Expérience Professionnelle</h2>
+          <div class="mb-2 text-gray-700">
+            <p><strong>Poste:</strong> Développeur Front-End</p>
+            <p><strong>Entreprise:</strong> XYZ Tech</p>
+            <p><strong>Lieu:</strong> Paris</p>
+            <p><strong>Contrat:</strong> CDI</p>
+            <p><strong>Période:</strong> Janvier 2020 - Décembre 2023</p>
+            <p><strong>Réalisations:</strong> Création d'applications web performantes et maintenables.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Compétences</h2>
+          <p class="mb-2"><strong>Techniques:</strong> 
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">HTML</span>
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">CSS</span>
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">JavaScript</span>
+            <span class="inline-block bg-gray-200 text-gray-900 px-2 py-1 rounded mr-2 mb-1">React</span>
+          </p>
+          <p><strong>Soft Skills:</strong>
+            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Communication</span>
+            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Travail en équipe</span>
+            <span class="inline-block bg-gray-300 text-gray-900 px-2 py-1 rounded mr-2 mb-1">Résolution de problèmes</span>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-lg border-b border-gray-300 pb-1 mb-2 text-gray-800">Certifications</h2>
+          <ul class="list-disc list-inside text-gray-700">
+            <li>Certification Développement Web Avancé</li>
+            <li>Certification Analyse de Données</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div >
+  <div class="mt-10 flex justify-center ">
+      <button type="button" onclick="" class=" cursor-pointer rounded-md px-10 py-2 text-[white] bg-blue-600"> telecharge</button>
+    </div>
+
+  </div>
+  <!-- done -->
+</div>
+</form>
+  `
+  const ul = document.getElementById('languecv')
+languestok.forEach( langue =>{
+  ul.innerHTML += `<li>${langue}</li>`
+  
+})
+console.log(languestok)
+}
