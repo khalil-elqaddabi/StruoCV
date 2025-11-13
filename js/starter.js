@@ -118,26 +118,26 @@ showSections()
 
 nextbtn.addEventListener("click",() =>{
   let valid = false ; 
-  // if(currentStep == 1){
-  //  valid = page1()
-  // }
-  // if(currentStep == 2){
-  //   valid= page2()
-  // }
-  // if(currentStep == 3){
-  //   valid= page3()
-  // }
-  // if(currentStep == 4){
-  //   valid= page4()
-  // }
-  // valid && 
-  if(currentStep < totalSteps){
+  if(currentStep == 1){
+    valid = page1()
+  }
+  if(currentStep == 2){
+    valid= true
+  }
+  if(currentStep == 3){
+    valid= true
+  }
+  if(currentStep == 4){
+    valid= true
+  }
+  if(   valid && currentStep < totalSteps){
     currentStep++
     updateProgressBar()
     showSections()
     updateStepDisplay()
     updatenformDisplay()
-    theam()
+       saveAllData()
+
     progress.style.backgroundColor = "gray"
   }
     
@@ -177,15 +177,23 @@ function addCompitance(){
   let li =document.createElement('li')
   li.classList.add('listC')
   compitancelist.push(condidat.value)
+
   li.innerHTML = `
     <span>${condidat.value}</span>
     <button class="removeBtn text-red-500 font-bold ml-3">X</button>
   `;
-
   // delete button
-  li.querySelector(".removeBtn").addEventListener("click", () => {
-    li.remove();
-  });
+  li.querySelectorAll(".removeBtn").forEach((btn,index)=>{
+    btn.addEventListener("click",()=>{
+       obj.lcompitance[index]
+       obj.lcompitance.splice(index,1)
+       console.log("is remove" , index)
+       ul.children[index].remove();
+       li.innerHTML=''
+    })
+  })
+   
+ 
   ul.appendChild(li)
   condidat.value = "";
 }
@@ -204,10 +212,15 @@ function addSoft(){
     <button class="removeBtn text-red-500 font-bold ml-3">X</button>
   `;
 
-  // delete button
-  li.querySelector(".removeBtn").addEventListener("click", () => {
-    li.remove();
-  });
+ li.querySelectorAll(".removeBtn").forEach((btn,index)=>{
+    btn.addEventListener("click",()=>{
+       obj.lsoftskills[index]
+       obj.lsoftskills.splice(index,1)
+       console.log("is remove" , index)
+       ul.children[index].remove();
+       li.innerHTML=''
+    })
+  })
   ul.appendChild(li)
   soft.value = "";
 }
@@ -226,10 +239,15 @@ function addLoi(){
     <button class="removeBtn text-red-500 font-bold ml-3">X</button>
   `;
 
-  // delete button
-  li.querySelector(".removeBtn").addEventListener("click", () => {
-    li.remove();
-  });
+ li.querySelectorAll(".removeBtn").forEach((btn,index)=>{
+    btn.addEventListener("click",()=>{
+       obj.lloisir[index]
+       obj.lloisir.splice(index,1)
+       console.log("is remove" , index)
+       ul.children[index].remove();
+       li.innerHTML=''
+    })
+  })
   ul.appendChild(li)
   soft.value = "";
 }
@@ -257,9 +275,15 @@ function addLangue(){
   `;
 
   // delete button
-  li.querySelector(".removeBtn").addEventListener("click", () => {
-    li.remove();
-  });
+ li.querySelectorAll(".removeBtn").forEach((btn,index)=>{
+    btn.addEventListener("click",()=>{
+       obj.llangues[index]
+       obj.llangues.splice(index,1)
+       console.log("is remove" , index)
+       ul.children[index].remove();
+       li.innerHTML=''
+    })
+  })
   ul.appendChild(li)
   ilangue.value = "";
 }
@@ -297,9 +321,15 @@ function addUni(){
   `;
 
   // delete button
-  li.querySelector(".removeBtn").addEventListener("click", () => {
-    li.remove();
-  });
+ li.querySelectorAll(".removeBtn").forEach((btn,index)=>{
+    btn.addEventListener("click",()=>{
+       obj.univercity[index]
+       obj.univercity.splice(index,1)
+       console.log("is remove" , index)
+       ul.children[index].remove();
+       li.innerHTML=''
+    })
+  })
   ul.appendChild(li)
   iuni.value = "";
   info.value = "";
@@ -339,9 +369,16 @@ function addEx(){
     </div>
     <span class="text-gray-500">achievements : </span> ${ach.value}
     <button class="removeBtn text-red-500 font-bold ml-3">X</button>`
-    li.querySelector(".removeBtn").addEventListener("click", () => {
-    li.remove();
-  });
+   
+    li.querySelectorAll(".removeBtn").forEach((btn,index)=>{
+    btn.addEventListener("click",()=>{
+       obj.experienceslist[index]
+       obj.experienceslist.splice(index,1)
+       console.log("is remove" , index)
+       ul.children[index].remove();
+       li.innerHTML=''
+    })
+  })
 
     ul.appendChild(li)
     job.value = "";
@@ -368,14 +405,18 @@ function addcertifica(){
     <div> <span class="text-gray-500">Univercity : </span>  ${inom.value}</div>
     <div> <span class="text-gray-500">domine : </span>  ${link.value}</div>
     </div>
-   
-    
     
     <button class="removeBtn text-red-500 font-bold ml-3">X</button>`
-    li.querySelector(".removeBtn").addEventListener("click", () => {
-    li.remove();
-  });
 
+  li.querySelectorAll(".removeBtn").forEach((btn,index)=>{
+    btn.addEventListener("click",()=>{
+       obj.certifica[index]
+       obj.certifica.splice(index,1)
+       console.log("is remove" , index)
+       ul.children[index].remove();
+       li.innerHTML=''
+    })
+  })
     ul.appendChild(li)
     inom.value = "";
   link.value = "";
@@ -458,13 +499,13 @@ allerrors.forEach((error)=> {
 // page2 validation
 // function page2(){
 
-   // inputs
-  // const fname = document.getElementById('first_name').value.trim()
-  // const lname = document.getElementById('last_name').value.trim()
-  // const email = document.getElementById('email').value.trim()
-  // const phone = document.getElementById('phone').value.trim()
+//    inputs
+//   const fname = document.getElementById('first_name').value.trim()
+//   const lname = document.getElementById('last_name').value.trim()
+//   const email = document.getElementById('email').value.trim()
+//   const phone = document.getElementById('phone').value.trim()
 
-  // spans
+//   spans
 //   const allerrors = document.querySelectorAll('.color')
 //   const errtitle = document.getElementById('err_title')
 //   const errLname = document.querySelector('#l_name')
@@ -477,26 +518,26 @@ allerrors.forEach((error)=> {
 // })
 //   let isValid = true;
 
-  // Validate name
-  // if (fname == "") {
-  //   errFname.textContent = "Name is required";
-  //   isValid = false;
-  // } 
-  // if (lname === "") {
-  //   errLname.textContent = "Name is required";
-  //   isValid = false;
-  // } 
+//   // Validate name
+//   if (fname == "") {
+//     errFname.textContent = "Name is required";
+//     isValid = false;
+//   } 
+//   if (lname === "") {
+//     errLname.textContent = "Name is required";
+//     isValid = false;
+//   } 
 
-  // Validate email
-  // if (email === "") {
-  //   erremail.textContent = "Email is required";
-  //   isValid = false;
-  // } 
-  // // Validate phone
-  // if (phone === "") {
-  //   errphone.textContent = "Phone number is required";
-  //   isValid = false;
-  // } 
+//   // Validate email
+//   if (email === "") {
+//     erremail.textContent = "Email is required";
+//     isValid = false;
+//   } 
+//   // Validate phone
+//   if (phone === "") {
+//     errphone.textContent = "Phone number is required";
+//     isValid = false;
+//   } 
 
   
 
@@ -512,7 +553,7 @@ allerrors.forEach((error)=> {
 
 
 
-function theam(){
+
 
 
 const obj = {
@@ -554,17 +595,21 @@ const obj = {
 
 
 }
-const keys = Object.keys(obj)
-const valueobj = Object.values(obj)
-console.log( keys)
-console.log(valueobj)
-for(let i=0 ; i<keys.length; i++){
-  localStorage.setItem(keys[i], valueobj[i])
+
+function saveAllData(){
+   localStorage.setItem("cvdata" ,JSON.stringify(obj))
 }
+// const keys = Object.keys(obj)
+// const valueobj = Object.values(obj)
+// console.log( keys)
+// console.log(valueobj)
+// for(let i=0 ; i<keys.length; i++){
+//   localStorage.setItem(keys[i], valueobj[i])
+// }
+
 // localStorage.setItem("imge".image_view.src)
 
 
 // obj.lcompitance.forEach( compet =>{
 //   document.getElementById
 // })
-}
