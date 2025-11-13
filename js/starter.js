@@ -122,7 +122,7 @@ nextbtn.addEventListener("click",() =>{
     valid = page1()
   }
   if(currentStep == 2){
-    valid= true
+    valid= page2()
   }
   if(currentStep == 3){
     valid= true
@@ -525,53 +525,30 @@ if( GitHub.value === ""){
 }
 
 // page2 validation
-// function page2(){
+function page2(){
+  // inputs
+  const Ptitle = document.getElementById('title_pro').value.trim()
 
-//    inputs
-//   const fname = document.getElementById('first_name').value.trim()
-//   const lname = document.getElementById('last_name').value.trim()
-//   const email = document.getElementById('email').value.trim()
-//   const phone = document.getElementById('phone').value.trim()
+  // spans
+  const allerrors = document.querySelectorAll('.color')
+ const errtitle = document.getElementById('err_title')
+ console.log("errors" ,allerrors)
+allerrors.forEach((error)=> {
+  error.style.color='red'
+  error.textContent=""
+})
+  let isValid = true;
 
-//   spans
-//   const allerrors = document.querySelectorAll('.color')
-//   const errtitle = document.getElementById('err_title')
-//   const errLname = document.querySelector('#l_name')
-//   const erremail = document.querySelector('#err_email')
-//   const errphone = document.querySelector('#err_p')
-//  console.log("errors" ,allerrors)
-// allerrors.forEach((error)=> {
-//   error.style.color='red'
-//   error.textContent=""
-// })
-//   let isValid = true;
+  // Validate name
+  if (Ptitle == "") {
+    errtitle.textContent = "titre professionnel is required";
+    isValid = false;
+  } 
+ 
 
-//   // Validate name
-//   if (fname == "") {
-//     errFname.textContent = "Name is required";
-//     isValid = false;
-//   } 
-//   if (lname === "") {
-//     errLname.textContent = "Name is required";
-//     isValid = false;
-//   } 
-
-//   // Validate email
-//   if (email === "") {
-//     erremail.textContent = "Email is required";
-//     isValid = false;
-//   } 
-//   // Validate phone
-//   if (phone === "") {
-//     errphone.textContent = "Phone number is required";
-//     isValid = false;
-//   } 
-
+  return isValid;
   
-
-//   return isValid;
-  
-// }
+}
 
 
 
@@ -675,7 +652,7 @@ function sectioncv(){
     <div class=" text-white p-6 flex flex-col md:flex-row md:items-center md:justify-between border-b border-gray-300">
       <div class="flex items-center space-x-4">
         <!-- Profile Image -->
-        <img src="https://intranet.youcode.ma/storage/users/profile/1636-1760996311.png" alt="Photo" class="w-24 h-24 rounded-full border-2 border-white">
+        <img src=" ${image_view.src}" alt="Photo" class="w-24 h-24 rounded-full border-2 border-white">
         <div>
           <h1 class="text-3xl font-bold text-black">${obj.prenom} ${obj.nom}</h1>
           <p class="mt-1 text-gray-300">Développeur FULL STACK</p>
@@ -886,3 +863,25 @@ languestok.forEach( langue =>{
 })
 console.log(languestok)
 }
+
+const upload_img = document.getElementById('dropzone-file')
+const image_view = document.getElementById('viewimg')
+upload_img.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+
+  if (file && ( file.size / (1024 * 1024)) < 2) {
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      image_view.src = e.target.result;
+
+    };
+    
+    reader.readAsDataURL(file);
+    
+    
+  }
+  else{
+    alert("chose picture with size < 2 MB")
+  }
+});
