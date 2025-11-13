@@ -553,10 +553,11 @@ allerrors.forEach((error)=> {
 
 
 
+let obj = {}
 
+function saveAllData(){
 
-
-const obj = {
+ obj = {
   prenom : first_name.value,
   nom : last_name.value,
   lemail : Email.value,
@@ -596,8 +597,8 @@ const obj = {
 
 }
 
-function saveAllData(){
    localStorage.setItem("cvdata" ,JSON.stringify(obj))
+   
 }
 // const keys = Object.keys(obj)
 // const valueobj = Object.values(obj)
